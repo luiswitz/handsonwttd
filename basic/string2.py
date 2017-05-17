@@ -7,7 +7,8 @@
 # http://code.google.com/edu/languages/google-python-class/
 
 # Additional basic string exercises
-
+import re
+import math
 
 # D. verbing
 # Given a string, if its length is at least 3,
@@ -35,8 +36,8 @@ def verbing(s):
 # So 'This dinner is not that bad!' yields:
 # This dinner is good!
 def not_bad(s):
-    # +++your code here+++
-    return
+    r = re.sub(r'not(.*)bad', 'good', s)
+    return r
 
 
 # F. front_back
@@ -47,8 +48,10 @@ def not_bad(s):
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
-    # +++your code here+++
-    return
+    front_a, back_a = a[:math.ceil(len(a)/2)], a[math.ceil(len(a)/2):]
+    front_b, back_b = b[:math.ceil(len(b)/2)], b[math.ceil(len(b)/2):]
+    r = front_a + front_b + back_a + back_b
+    return r
 
 
 # Simple provided test() function used in main() to print
